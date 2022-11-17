@@ -15,11 +15,11 @@ const UserDetails = () => {
     const [userDetails, setUserDetails] = useState({
         userName: "sidsrivastavasks",
         name: "Siddhant Srivastava",
-        bio: "",
-        location: "",
-        twitter: "",
-        github: "",
-        image: "",
+        bio: "My Name is Siddhant Srivastava, ok lets add some more",
+        location: "Kolkata",
+        twitter: "Not Found yet",
+        github: " https://github.com/sidsrivastavasks",
+        image: "https://avatars.githubusercontent.com/u/55981532?v=4",
         loaded: false,
         repoCount: 0,
     });
