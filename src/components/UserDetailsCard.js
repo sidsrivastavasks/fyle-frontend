@@ -25,7 +25,7 @@ const UserDetailsCard = (props) => {
                 </div>
                 <div className="bottom">
                     <p>
-                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></img>{" "}
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></img>
                         {props.userDetails.github}
                     </p>
                 </div>

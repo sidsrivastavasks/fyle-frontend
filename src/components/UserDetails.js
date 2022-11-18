@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Home from "./Home";
 import UserDetailsCard from "./UserDetailsCard";
+import RepoComponent from "./RepoComponent";
 // import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const UserDetails = () => {
@@ -10,7 +12,7 @@ const UserDetails = () => {
         if (username !== undefined || username !== "") {
             getUserDetails();
         }
-    });
+    }, []);
 
     const [userDetails, setUserDetails] = useState({
         userName: "sidsrivastavasks",
@@ -24,8 +26,8 @@ const UserDetails = () => {
         repoCount: 0,
     });
 
-    const getUserDetails = (e) => {
-        axios
+    const getUserDetails = async (e) => {
+        await axios
             .get(`https://api.github.com/users/${username}`)
             .then(async (response) => {
                 console.log(response);
@@ -48,11 +50,13 @@ const UserDetails = () => {
 
     return (
         <div>
-            {!userDetails.loaded ? (
+            {userDetails.loaded ? (
                 <>
-                    {" "}
                     {userDetails.userName ? (
-                        <UserDetailsCard userDetails={userDetails} />
+                        <>
+                            <UserDetailsCard userDetails={userDetails} />
+                            <RepoComponent username={userDetails.userName} />
+                        </>
                     ) : (
                         "Wrong"
                     )}
