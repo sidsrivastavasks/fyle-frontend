@@ -7,6 +7,12 @@ import RepoComponent from "./RepoComponent";
 
 const UserDetails = () => {
     const username = window.location.href.split("/")[3];
+    let axiosConfig = {
+        headers: {
+            Authorization:
+                "Bearer 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",
+        },
+    };
 
     useEffect(() => {
         if (username !== undefined || username !== "") {
@@ -28,7 +34,7 @@ const UserDetails = () => {
 
     const getUserDetails = async (e) => {
         await axios
-            .get(`https://api.github.com/users/${username}`)
+            .get(`https://api.github.com/users/${username}`, axiosConfig)
             .then(async (response) => {
                 console.log(response);
                 setUserDetails({
