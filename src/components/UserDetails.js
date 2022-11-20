@@ -3,6 +3,7 @@ import axios from "axios";
 import Home from "./Home";
 import UserDetailsCard from "./UserDetailsCard";
 import RepoComponent from "./RepoComponent";
+import Pagination from "./Paginations";
 // import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const UserDetails = () => {
@@ -21,13 +22,13 @@ const UserDetails = () => {
     }, []);
 
     const [userDetails, setUserDetails] = useState({
-        userName: "sidsrivastavasks",
-        name: "Siddhant Srivastava",
-        bio: "My Name is Siddhant Srivastava, ok lets add some more",
-        location: "Kolkata",
-        twitter: "Not Found yet",
-        github: " https://github.com/sidsrivastavasks",
-        image: "https://avatars.githubusercontent.com/u/55981532?v=4",
+        userName: "",
+        name: "",
+        bio: "",
+        location: "",
+        twitter: "",
+        github: "",
+        image: "",
         loaded: false,
         repoCount: 0,
     });
@@ -61,7 +62,10 @@ const UserDetails = () => {
                     {userDetails.userName ? (
                         <>
                             <UserDetailsCard userDetails={userDetails} />
-                            <RepoComponent username={userDetails.userName} />
+                            <Pagination
+                                username={userDetails.userName}
+                                repoCount={30}
+                            />
                         </>
                     ) : (
                         "Wrong"

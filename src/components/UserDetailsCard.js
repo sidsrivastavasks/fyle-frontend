@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import React from "react";
+import { IoMdLink } from "react-icons/io";
 
 const UserDetailsCard = (props) => {
     return (
@@ -20,14 +20,19 @@ const UserDetailsCard = (props) => {
                                 {props.userDetails.location}
                             </p>
                         </div>
-                        <p>Twitter: {props.userDetails.twitter}</p>
+                        <p>
+                            Twitter:
+                            <a href={props.userDetails.twitter}>
+                                {props.userDetails.twitter}
+                            </a>
+                        </p>
                     </div>
                 </div>
                 <div className="bottom">
-                    <p>
-                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></img>
+                    <IoMdLink style={{ width: "25px", height: "25px" }} />
+                    <a href={props.userDetails.github}>
                         {props.userDetails.github}
-                    </p>
+                    </a>
                 </div>
             </div>
         </div>

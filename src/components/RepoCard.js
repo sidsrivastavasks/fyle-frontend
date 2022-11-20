@@ -30,10 +30,8 @@ const RepoCard = (props) => {
 
     return (
         <div className="card" key={props.repo.id}>
-            <div className="repoDetails">
-                <h2>{props.repo.name}</h2>
-                <p>{props.repo.description}</p>
-            </div>
+            <h2>{props.repo.name}</h2>
+            <p>{props.repo.description}</p>
             <div className="languageBox">
                 {Object.keys(language).map((value, index) => {
                     return (
