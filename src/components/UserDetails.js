@@ -53,15 +53,16 @@ const UserDetails = () => {
                 });
             })
             .catch((error) => {
-                console.log(error);
+                setUserDetails({ ...userDetails, loaded: true });
+                console.log("here", error);
             });
     };
 
     return (
-        <div>
+        <>
             {userDetails.loaded ? (
                 <>
-                    {userDetails.userName ? (
+                    {userDetails.name ? (
                         <>
                             <UserDetailsCard userDetails={userDetails} />
                             <Pagination
@@ -70,7 +71,11 @@ const UserDetails = () => {
                             />
                         </>
                     ) : (
-                        "Wrong"
+                        <div className="Error">
+                            <h2>
+                                User with username - {username} is not present.
+                            </h2>
+                        </div>
                     )}
                 </>
             ) : (
@@ -78,7 +83,7 @@ const UserDetails = () => {
                     <GridLoader color="#36d7b7" />
                 </div>
             )}
-        </div>
+        </>
     );
 };
 
