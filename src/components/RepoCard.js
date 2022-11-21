@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const RepoCard = (props) => {
     const [language, setLanguage] = useState({});
+    const [loaded, setLoad] = useState(false);
     let axiosConfig = {
         headers: {
             Authorization:
@@ -22,6 +24,7 @@ const RepoCard = (props) => {
             .then(async (response) => {
                 const data = response.data;
                 setLanguage(data);
+                setLoad(true);
             })
             .catch((error) => {
                 console.log(error);
@@ -32,15 +35,19 @@ const RepoCard = (props) => {
         <div className="card" key={props.repo.id}>
             <h2>{props.repo.name}</h2>
             <p>{props.repo.description}</p>
-            <div className="languageBox">
-                {Object.keys(language).map((value, index) => {
-                    return (
-                        <div className="language" key={index}>
-                            {value}
-                        </div>
-                    );
-                })}
-            </div>
+            {loaded ? (
+                <div className="languageBox">
+                    {Object.keys(language).map((value, index) => {
+                        return (
+                            <div className="language" key={index}>
+                                {value}
+                            </div>
+                        );
+                    })}
+                </div>
+            ) : (
+                <ScaleLoader color="#41b5ff" />
+            )}
         </div>
     );
 };

@@ -4,6 +4,8 @@ import Home from "./Home";
 import UserDetailsCard from "./UserDetailsCard";
 import RepoComponent from "./RepoComponent";
 import Pagination from "./Paginations";
+import GridLoader from "react-spinners/GridLoader";
+
 // import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const UserDetails = () => {
@@ -64,7 +66,7 @@ const UserDetails = () => {
                             <UserDetailsCard userDetails={userDetails} />
                             <Pagination
                                 username={userDetails.userName}
-                                repoCount={30}
+                                repoCount={userDetails.repoCount}
                             />
                         </>
                     ) : (
@@ -72,7 +74,9 @@ const UserDetails = () => {
                     )}
                 </>
             ) : (
-                "Loading...."
+                <div className="Loader">
+                    <GridLoader color="#36d7b7" />
+                </div>
             )}
         </div>
     );
