@@ -5,12 +5,6 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 const RepoCard = (props) => {
     const [language, setLanguage] = useState({});
     const [loaded, setLoad] = useState(false);
-    let axiosConfig = {
-        headers: {
-            Authorization:
-                "Bearer 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",
-        },
-    };
 
     useEffect(() => {
         if (props.repo.name !== undefined && props.repo.name !== "") {
@@ -34,7 +28,11 @@ const RepoCard = (props) => {
     return (
         <div className="card" key={props.repo.id}>
             <h2>{props.repo.name}</h2>
-            <p>{props.repo.description}</p>
+            <p>
+                {props.repo.description
+                    ? props.repo.description
+                    : "No Description"}
+            </p>
             {loaded ? (
                 <div className="languageBox">
                     {Object.keys(language).map((value, index) => {

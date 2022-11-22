@@ -10,12 +10,6 @@ import GridLoader from "react-spinners/GridLoader";
 
 const UserDetails = () => {
     const username = window.location.href.split("/")[3];
-    let axiosConfig = {
-        headers: {
-            Authorization:
-                "Bearer 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",
-        },
-    };
 
     useEffect(() => {
         if (username !== undefined || username !== "") {
