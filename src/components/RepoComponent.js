@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import RepoCard from "./RepoCard";
 import Pagination from "./Paginations";
+import GridLoader from "react-spinners/GridLoader";
 
 const RepoComponent = (props) => {
     const { username, pageNumber } = props;
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         // console.log(pageNumber);
@@ -24,12 +26,12 @@ const RepoComponent = (props) => {
     const getUserRepo = (e) => {
         axios
             .get(
-                `https://api.github.com/users/${username}/repos?per_page=6&page=${pageNumber}`,
-                axiosConfig
+                `https://api.github.com/users/${username}/repos?per_page=6&page=${pageNumber}`
             )
             .then((response) => {
                 const data = response.data;
                 setUserRepo(data);
+                setLoaded(true);
             })
             .catch((error) => {
                 console.log(error);
@@ -37,13 +39,21 @@ const RepoComponent = (props) => {
     };
 
     return (
-        <div className="repoContainer">
-            <div className="repoGrid">
-                {userRepo.map((repo) => (
-                    <RepoCard repo={repo} key={repo.id} />
-                ))}
-            </div>
-        </div>
+        <>
+            {loaded ? (
+                <div className="repoContainer">
+                    <div className="repoGrid">
+                        {userRepo.map((repo) => (
+                            <RepoCard repo={repo} key={repo.id} />
+                        ))}
+                    </div>
+                </div>
+            ) : (
+                <div className="Loader">
+                    <GridLoader color="#41b5ff" />
+                </div>
+            )}
+        </>
     );
 };
 

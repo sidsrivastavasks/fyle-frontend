@@ -37,7 +37,7 @@ const UserDetails = () => {
 
     const getUserDetails = async (e) => {
         await axios
-            .get(`https://api.github.com/users/${username}`, axiosConfig)
+            .get(`https://api.github.com/users/${username}`)
             .then(async (response) => {
                 console.log(response);
                 setUserDetails({
@@ -80,7 +80,7 @@ const UserDetails = () => {
                 </>
             ) : (
                 <div className="Loader">
-                    <GridLoader color="#36d7b7" />
+                    <GridLoader color="#41b5ff" />
                 </div>
             )}
         </>

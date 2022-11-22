@@ -20,7 +20,7 @@ const RepoCard = (props) => {
 
     const getLanguage = (e) => {
         axios
-            .get(`${props.repo.languages_url}`, axiosConfig)
+            .get(`${props.repo.languages_url}`)
             .then(async (response) => {
                 const data = response.data;
                 setLanguage(data);

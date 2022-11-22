@@ -1,3 +1,8 @@
+.App {
+    height: 100%;
+    width: 90%;
+    margin: auto;
+}
 .searchBox {
     /* margin-top: 15%; */
     display: flex;
@@ -42,10 +47,10 @@ button:hover {
 }
 
 .userContainer {
-    width: 90%;
+    width: 100%;
     height: auto;
-    margin-left: 5%;
-    margin-right: 5%;
+    /* margin-left: 5%;
+    margin-right: 5%; */
 }
 
 .profileImage {
@@ -91,9 +96,9 @@ button:hover {
 
 .card {
     height: 260px;
-    width: 640px;
+    width: 46%;
     outline: solid 1px black;
-    margin: 24px 24px 0 0;
+    margin: 10px 23px 10px 23px;
     padding: 7px;
 }
 
@@ -108,14 +113,15 @@ button:hover {
 
     display: flex;
     align-items: center;
-    margin: 0 12px;
-    padding: 0 0 56px;
+    /* margin: 0 12px;
+    padding: 0 0 56px; */
+    width: 100%;
     flex-flow: row wrap;
 }
 
 .repoContainer {
-    width: 92%;
-    margin: auto;
+    width: 100%;
+    /* margin: auto; */
 }
 
 .repoDetails {
