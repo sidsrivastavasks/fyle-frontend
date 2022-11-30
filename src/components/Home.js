@@ -23,7 +23,7 @@ const Home = () => {
             <div>
                 <h1>Enter username</h1>
             </div>
-            <div>
+            <div className="typeBox">
                 <input
                     type="search"
                     placeholder="Search here"
