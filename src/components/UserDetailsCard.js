@@ -1,5 +1,5 @@
 import React from "react";
-import { IoMdLink } from "react-icons/io";
+import { IoMdLink, IoIosPin } from "react-icons/io";
 
 const UserDetailsCard = (props) => {
     return (
@@ -14,11 +14,8 @@ const UserDetailsCard = (props) => {
                         <h1>{props.userDetails.name}</h1>
                         <p>{props.userDetails.bio}</p>
                         <div className="location">
-                            <p>
-                                {/* <img src="https://cdn-icons-png.flaticon.com/512/17/17736.png"></img> */}
-                                <i className="fa-solid fa-location-dot"></i>
-                                {props.userDetails.location}
-                            </p>
+                            <IoIosPin />
+                            <p> {props.userDetails.location}</p>
                         </div>
                         <p>
                             Twitter:

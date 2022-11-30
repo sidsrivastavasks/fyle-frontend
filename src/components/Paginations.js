@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import RepoComponent from "./RepoComponent";
 import {
-    IoIosArrowBack,
-    IoIosArrowForward,
+    IoMdArrowBack,
     IoIosArrowRoundBack,
     IoIosArrowRoundForward,
+    IoMdArrowForward,
 } from "react-icons/io";
 
 const Pagination = (props) => {
@@ -58,11 +58,11 @@ const Pagination = (props) => {
             <div className="PageButtonBox">
                 <div className="PaginationPages">
                     <button key="back" onClick={handlePrevious}>
-                        <IoIosArrowBack />
+                        <IoMdArrowBack />
                     </button>
                     {addButtons(pages.totalPage)}
                     <button key="front" onClick={handleNext}>
-                        <IoIosArrowForward />
+                        <IoMdArrowForward />
                     </button>
                 </div>
 

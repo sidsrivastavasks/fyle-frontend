@@ -79,14 +79,8 @@ button:hover {
 .location {
     display: flex;
     flex-direction: row;
-}
-
-.location img {
-    height: 21px;
-    width: 21px;
-}
-.location p {
-    text-align: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .bottom img {
@@ -95,7 +89,8 @@ button:hover {
 }
 
 .card {
-    height: 245px;
+    min-height: 240px;
+    height: auto;
     width: 46%;
     outline: solid 1px black;
     margin: 10px 17px;
