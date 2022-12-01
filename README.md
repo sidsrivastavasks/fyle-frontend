@@ -1,5 +1,5 @@
 # Project Hosted Link
-### [Click Here!](https://fetch-github-profile.netlify.app/)
+### [Click Here!](https://github-profile-frontend.netlify.app/)
 <br>
 
 # Project Description
